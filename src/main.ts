@@ -5,7 +5,7 @@ async function run(): Promise<void> {
     const cond: string = core.getInput('cond', {required: true})
     const ifTrue: string = core.getInput('if_true')
     const ifFalse: string = core.getInput('if_false')
-    core.setOutput('value', cond === 'true' ? ifTrue : ifFalse)
+    core.setOutput('value', cond === 'true' || cond === true || cond === 1 ? ifTrue : ifFalse)
   } catch (error) {
     if (error instanceof Error) {
       core.setFailed(error.message)
